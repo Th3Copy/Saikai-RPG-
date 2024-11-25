@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Movimentos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #1f1f1f;
+      color: #76c7c0;
+      padding: 1em;
+      text-align: center;
+    }
+
+    main {
+      padding: 2em;
+    }
+
+    .menu {
+      background-color: #1f1f1f;
+      padding: 10px;
+      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .menu a {
+      color: #76c7c0;
+      padding: 10px 20px;
+      text-decoration: none;
+    }
+
+    .menu a:hover,
+    .menu .active {
+      text-decoration: underline;
+      color: #f0f0f0;
+    }
+
+    .list {
+      background-color: #202020;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    .list .item {
+      border-bottom: 1px solid #333;
+      padding: 15px 0;
+    }
+
+    .list .item:last-child {
+      border-bottom: none;
+    }
+
+    .list .header b {
+      color: #76c7c0;
+    }
+
+    .list .description {
+      color: #cccccc;
+      margin-top: 5px;
+    }
+
+    .list .right {
+      float: right;
+    }
+
+    button,
+    a.button {
+      background-color: #006400;
+      color: #e0e0e0;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      text-align: center;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+
+    button:hover,
+    a.button:hover {
+      background-color: #004d00;
+    }
+
+    a.green {
+      background-color: #008000;
+    }
+
+    a.green:hover {
+      background-color: #006400;
+    }
+
+    a.blue {
+      background-color: #0000ff;
+    }
+
+    a.blue:hover {
+      background-color: #0000cc;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <header>
+      <style>
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: Arial, sans-serif;
+          background-color: #121212;
+          /* Cor de fundo do site */
+          color: #00ffff;
+          /* Cor do texto */
+        }
+
+        footer {
+          position: fixed;
+          /* Fixa na parte inferior */
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          /* Ocupa toda a largura */
+          display: flex;
+          /* Alinha conteúdo em linha */
+          justify-content: center;
+          /* Centraliza horizontalmente */
+          align-items: center;
+          /* Centraliza verticalmente */
+          background-color: #1a1a1a;
+          /* Cor de fundo do rodapé */
+          padding: 10px 0;
+          /* Espaçamento interno */
+          box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+          /* Sombra para destaque */
+        }
+
+        footer img {
+          width: 125px;
+          /* Ajusta o tamanho do logo */
+          height: auto;
+          /* Mantém a proporção */
+          margin-right: 10px;
+          /* Espaço entre a imagem e o título */
+        }
+
+        footer h1 {
+          font-size: 18px;
+          /* Ajusta o tamanho do título */
+          margin: 0;
+          /* Remove margens extras */
+        }
+      </style>
+      </head>
+
+      <body>
+        <!-- Rodapé -->
+        <footer>
+          <img src="Logorpg.png" alt="Logo do RPG">
+        </footer>
+      </body>
+
+</html>
+<h1>Saikai RPG</h1>
+</header>
+</header>
+<div class="menu">
+  <a href="index.html">Configuração</a>
+  <a href="user.html">Usuários</a>
+  <a href="move.html" class=" active">Moves</a>
+  <a href="">Itens</a>
+  <a href="">Craft</a>
+  <a href="">Mapas</a>
+  <a href="">Mobs</a>
+</div>
+<main>
+  <a class="button blue" href="" target="_blank">
+    Public moves list
+  </a>
+  <div class="list">
+    <div class="item">
+      <div class="right">
+        <a class="button blue" href="">Edit</a>
+      </div>
+      <div class="header">
+        <b>[1] Punch</b>
+      </div>
+      <div class="description">Punch the opponent.</div>
+    </div>
+    <div class="item">
+      <div class="right">
+        <a class="button blue" href="">Edit</a>
+      </div>
+      <div class="header">
+        <b>[2] Habilidades musicais</b>
+      </div>
+      <div class="description">Permite criar ondas sonoras com instrumentos musicais.</div>
+    </div>
+    <!-- Continue os movimentos seguindo o mesmo padrão acima -->
+    <div class="item">
+      <div class="right">
+        <a class="button blue" href="">Edit</a>
+      </div>
+      <div class="header">
+        <b>[3] Sopro de fogo</b>
+      </div>
+      <div class="description">Sopra fogo.</div>
+    </div>
+  </div>
+  <a class="button green" href="">
+    new move
+  </a>
+</main>
+
+</body>
+
+</html>
