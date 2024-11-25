@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <title>Saikai RPG</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #1f1f1f;
+      color: #76c7c0;
+      padding: 1em;
+      text-align: center;
+    }
+
+    main {
+      padding: 2em;
+    }
+
+    button,
+    .ui.blue.button {
+      background-color: #006400;
+      color: #e0e0e0;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      text-align: center;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover,
+    .ui.blue.button:hover {
+      background-color: #004d00;
+    }
+
+    .form-container {
+      margin: 20px;
+    }
+
+    .form-container form {
+      background-color: #202020;
+      padding: 20px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .form-container label {
+      margin-right: 10px;
+    }
+
+    .form-container input {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      border: 1px solid #444;
+      border-radius: 5px;
+      width: 200px;
+    }
+
+    .menu {
+      background-color: #1f1f1f;
+      padding: 10px;
+      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .menu a {
+      color: #76c7c0;
+      padding: 10px 20px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .menu a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #121212;
+        /* Cor de fundo do site */
+        color: #00ffff;
+        /* Cor do texto */
+      }
+
+      footer {
+        position: fixed;
+        /* Fixa na parte inferior */
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        /* Ocupa toda a largura */
+        display: flex;
+        /* Alinha conteúdo em linha */
+        justify-content: center;
+        /* Centraliza horizontalmente */
+        align-items: center;
+        /* Centraliza verticalmente */
+        background-color: #1a1a1a;
+        /* Cor de fundo do rodapé */
+        padding: 10px 0;
+        /* Espaçamento interno */
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+        /* Sombra para destaque */
+      }
+
+      footer img {
+        width: 125px;
+        /* Ajusta o tamanho do logo */
+        height: auto;
+        /* Mantém a proporção */
+        margin-right: 10px;
+        /* Espaço entre a imagem e o título */
+      }
+
+      footer h1 {
+        font-size: 18px;
+        /* Ajusta o tamanho do título */
+        margin: 0;
+        /* Remove margens extras */
+      }
+    </style>
+    </head>
+
+    <body>
+      <!-- Rodapé -->
+      <footer>
+        <img src="Logorpg.png" alt="Logo do RPG">
+      </footer>
+    </body>
+
+</html>
+<h1>Saikai RPG</h1>
+</header>
+
+  <div class="menu">
+    <a href="index.html" class="active">Configuração</a>
+    <a href="user.html">Usuários</a>
+    <a href="movelist.html">Moves</a>
+    <a href="itenslist.html">Itens</a>
+    <a href="craftlist.html">Craft</a>
+    <a href="mapaslist.html">Mapas</a>
+    <a href="mobslist.html">Mobs</a>
+  </div>
+<main>
+  <div class="form-container">
+    <form>
+      <div>
+        <label for="cancelaralutaid">Cancelar a luta:</label>
+        <input id="cancelaralutaid" type="text" placeholder="User ID">
+        <button class="ui blue button"
+          onclick="event.preventDefault(); sendRequest('Cancelamento da luta', { id: document.getElementById('cancelaralutaid').value });">Definir</button>
+      </div>
+    </form>
+    <form>
+      <div>
+        <label for="skipturnid">Pular a luta:</label>
+        <input id="skipturnid" type="text" placeholder="User ID">
+        <button class="ui blue button"
+          onclick="event.preventDefault(); sendRequest('Pular a Luta', { id: document.getElementById('skipturnid').value });">Definir</button>
+      </div>
+    </form>
+    <form>
+      <div>
+        <label for="sethpid">Definir HP:</label>
+        <input id="sethpid" type="text" placeholder="User ID">
+        <input id="sethpcharid" type="text" placeholder="ID do Personagem">
+        <input id="sethpamount" type="text" placeholder="Quantidade de HP">
+        <button class="ui blue button"
+          onclick="event.preventDefault(); sendRequest('Definição de hp', { id: document.getElementById('sethpid').value, char: Number(document.getElementById('sethpcharid').value), amount: Number(document.getElementById('sethpamount').value) });">Definir</button>
+      </div>
+    </form>
+    <form>
+      <div>
+        <label for="setcoinsid">Definir Moedas:</label>
+        <input id="setcoinsid" type="text" placeholder="User ID">
+        <input id="setcoinsamount" type="text" placeholder="Quantidade">
+        <button class="ui blue button"
+          onclick="event.preventDefault(); sendRequest('Mudanças na quantidade moedas', { id: document.getElementById('setcoinsid').value, amount: Number(document.getElementById('setcoinsamount').value) });">Definir</button>
+      </div>
+    </form>
+    <form>
+      <div>
+        <label for="setitemid">Definir Itens:</label>
+        <input id="setitemid" type="text" placeholder="User ID">
+        <input id="setitemcharid" type="text" placeholder="ID do Personagem">
+        <input id="setitemitemid" type="text" placeholder="ID do Item">
+        <input id="setitemamount" type="text" placeholder="Quantidade">
+        <button class="ui blue button"
+          onclick="event.preventDefault(); sendRequest('Mudanças na quantidade de itens', { id: document.getElementById('setitemid').value, char: Number(document.getElementById('setitemcharid').value), itemid: document.getElementById('setitemitemid').value, quantity: Number(document.getElementById('setitemamount').value) });">Definir</button>
+      </div>
+    </form>
+    <form>
+      <div>
+        <label for="moveuserid">User ID:</label>
+        <input id="moveuserid" type="text" placeholder="User ID">
+      </div>
+      <div>
+        <label for="movecharid">ID do Personagem:</label>
+        <input id="movecharid" type="text" placeholder="ID do Personagem">
+      </div>
+      <div>
+        <label for="move1">Move 1:</label>
+        <input id="move1" type="text" placeholder="Move 1">
+      </div>
+      <div>
+        <label for="move2">Move 2:</label>
+        <input id="move2" type="text" placeholder="Move 2">
+      </div>
+      <div>
+        <label for="move3">Move 3:</label>
+        <input id="move3" type="text" placeholder="Move 3">
+      </div>
+      <div>
+        <label for="move4">Move 4:</label>
+        <input id="move4" type="text" placeholder="Move 4">
+      </div>
+      <div>
+        <label for="move5">Move 5:</label>
+        <input id="move5" type="text" placeholder="Move 5">
+      </div>
+      <button class="ui blue button"
+        onclick="event.preventDefault(); sendRequest('Troca dos movimentos', { id: document.getElementById('moveuserid').value, char: Number(document.getElementById('movecharid').value), moves: [Number(document.getElementById('move1').value), Number(document.getElementById('move2').value), Number(document.getElementById('move3').value), Number(document.getElementById('move4').value), Number(document.getElementById('move5').value)]});">Definir</button>
+    </form>
+  </div>
+</main>
+
+<script>
+  function sendRequest(action, data) {
+    console.log('Enviando solicitação para', action, 'com dados:', data);
+
+    Swal.fire({
+      title: `${action} executado`,
+      text: 'Operação realizada com sucesso!',
+      icon: 'success',
+      confirmButtonText: 'OK'
+    });
+  }
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <title>Saikai RPG</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #1f1f1f;
+      color: #76c7c0;
+      padding: 1em;
+      text-align: center;
+    }
+
+    main {
+      padding: 2em;
+    }
+
+    button,
+    .ui.blue.button {
+      background-color: #006400;
+      color: #e0e0e0;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      text-align: center;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover,
+    .ui.blue.button:hover {
+      background-color: #004d00;
+    }
+
+    .form-container {
+      margin: 20px;
+    }
+
+    .form-container form {
+      background-color: #202020;
+      padding: 20px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .form-container label {
+      margin-right: 10px;
+    }
+
+    .form-container input {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      border: 1px solid #444;
+      border-radius: 5px;
+      width: 200px;
+    }
+
+    .menu {
+      background-color: #1f1f1f;
+      padding: 10px;
+      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .menu a {
+      color: #76c7c0;
+      padding: 10px 20px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .menu a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Saikai RPG</h1>
+  </header>
+
+
+  <div class="menu">
+    <a href="index.html" class="active">Configuração</a>
+    <a href="user.html">Usuários</a>
+    <a href="movelist.html">Moves</a>
+    <a href="itenslist.html">Itens</a>
+    <a href="craftlist.html">Craft</a>
+    <a href="mapaslist.html">Mapas</a>
+    <a href="mobslist.html">Mobs</a>
+  </div>
+  <!-- jaw me abandonou, estou deveras triste. enfim mais uma página-->
+  <main>
+    <div class="form-container">
+      <form class="ui inverted form">
+        <div class="inline field">
+          <label>Embed Color</label>
+          <input id="color" style="background-color: #202020; color: #ffffff" type="text" value="#6368ed">
+        </div>
+        <button class="ui blue button"
+          onclick="event.preventDefault(); sendRequest('Não sei oq', { id: document.getElementById('color').value, amount: document.getElementById('amountid').value });">
+          Definir
+        </button>
+      </form>
+
+      <!-- Formulário para HP Base -->
+      <form class="ui inverted form">
+        <div class="inline field">
+          <label>HP Base</label>
+          <input id="defaulthp" style="background-color: #202020; color: #ffffff" type="text" value="20">
+        </div>
+        <button class="ui blue button"
+          onclick="event.preventDefault(); sendRequest('HP Base', { id: document.getElementById('defaulthp').value, amount: document.getElementById('amountid').value });">
+          Definir
+        </button>
+      </form>
+
+      <!-- Formulário para Quantidade de Moedas -->
+      <form class="ui inverted form">
+        <div class="inline field">
+          <label>Quantidade de Coins</label>
+          <input id="defaultcoins" style="background-color: #202020; color: #ffffff" type="text" value="0">
+        </div>
+        <button class="ui blue button"
+          onclick="event.preventDefault(); sendRequest('Quantidade de Coins Padrão', { id: document.getElementById('defaultcoins').value, amount: document.getElementById('amountid').value });">
+          Definir
+        </button>
+      </form>
+
+      <!-- Formulário para Max HP -->
+      <form class="ui inverted form">
+        <div class="inline field">
+          <label>Max HP</label>
+          <input id="hplimit" style="background-color: #202020; color: #ffffff" type="text" value="999">
+        </div>
+        <button class="ui blue button"
+          onclick="event.preventDefault(); sendRequest('Max HP', { id: document.getElementById('hplimit').value, amount: document.getElementById('amountid').value });">
+          Definir
+        </button>
+      </form>
+
+      <!-- Formulário para Preço do HP -->
+      <form class="ui inverted form">
+        <div class="inline field">
+          <label>Preço HP</label>
+          <input id="hpcostid" style="background-color: #202020; color: #ffffff" type="text" value="10">
+        </div>
+        <div class="inline field">
+          <label>Quantidade de HP</label>
+          <input id="amountid" style="background-color: #202020; color: #ffffff" type="text" value="1">
+        </div>
+        <button class="ui blue button"
+          onclick="event.preventDefault(); sendRequest('Valor do HP', { id: document.getElementById('hpcostid').value, amount: document.getElementById('amountid').value });">
+          Definir
+        </button>
+      </form>
+
+      <form>
+
+        <!-- Formulário para  Moves padrão -->
+        <form class="ui inverted form">
+          <div class="inline field">
+            <label> Move 1</label>
+            <input id="move1" style="background-color: #202020; color: #ffffff" type="text" value="0">
+          </div>
+          <div class="inline field">
+            <label> Move 2</label>
+            <input id="move2" style="background-color: #202020; color: #ffffff" type="text" value="0">
+          </div>
+          <div class="inline field">
+            <label>Move 3</label>
+            <input id="move3" style="background-color: #202020; color: #ffffff" type="text" value="0">
+          </div>
+          <div class="inline field">
+            <label>Move 4</label>
+            <input id="move4" style="background-color: #202020; color: #ffffff" type="text" value="0">
+          </div>
+          <div class="inline field">
+            <label>Move 5</label>
+            <input id="move5" style="background-color: #202020; color: #ffffff" type="text" value="0">
+          </div>
+          <a class="ui blue button"
+            onclick="event.preventDefault(); sendRequest('Moves Padrão', [Number(document.getElementById('move1').value), Number(document.getElementById('move2').value), Number(document.getElementById('move3').value), Number(document.getElementById('move4').value), Number(document.getElementById('move5').value)])">Set</a>
+        </form>
+    </div>
+  </main>
+
+  <script>
+    function sendRequest(action, data) {
+      console.log('Enviando solicitação para', action, 'com dados:', data);
+
+      Swal.fire({
+        title: `${action} executado`,
+        text: 'Operação realizada com sucesso!',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      });
+    }
+  </script>
+
+</body>
+
+<body>
+  <header>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #121212;
+        /* Cor de fundo do site */
+        color: #00ffff;
+        /* Cor do texto */
+      }
+
+      footer {
+        position: fixed;
+        /* Fixa na parte inferior */
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        /* Ocupa toda a largura */
+        display: flex;
+        /* Alinha conteúdo em linha */
+        justify-content: center;
+        /* Centraliza horizontalmente */
+        align-items: center;
+        /* Centraliza verticalmente */
+        background-color: #1a1a1a;
+        /* Cor de fundo do rodapé */
+        padding: 10px 0;
+        /* Espaçamento interno */
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+        /* Sombra para destaque */
+      }
+
+      footer img {
+        width: 125px;
+        /* Ajusta o tamanho do logo */
+        height: auto;
+        /* Mantém a proporção */
+        margin-right: 10px;
+        /* Espaço entre a imagem e o título */
+      }
+
+      footer h1 {
+        font-size: 18px;
+        /* Ajusta o tamanho do título */
+        margin: 0;
+        /* Remove margens extras */
+      }
+    </style>
+    </head>
+
+    <body>
+      <!-- Rodapé -->
+      <footer>
+        <img src="Logorpg.png" alt="Logo do RPG">
+      </footer>
+    </body>

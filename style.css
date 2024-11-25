@@ -1,0 +1,97 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-color: #1f1f1f;
+  color: #76c7c0;
+  padding: 1em;
+  text-align: center;
+}
+main {
+  padding: 2em;
+}
+.menu {
+  background-color: #1f1f1f;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.menu a {
+  color: #76c7c0;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.menu a:hover,
+.menu .active {
+  text-decoration: underline;
+  color: #f0f0f0;
+}
+.list {
+  background-color: #202020;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.list .item {
+  border-bottom: 1px solid #333;
+  padding: 15px 0;
+}
+
+.list .item:last-child {
+  border-bottom: none;
+}
+
+.list .header b {
+  color: #76c7c0;
+}
+
+.list .description {
+  color: #cccccc;
+  margin-top: 5px;
+}
+
+.list .right {
+  float: right;
+}
+button,
+a.button {
+  background-color: #006400;
+  color: #e0e0e0;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+button:hover,
+a.button:hover {
+  background-color: #004d00;
+}
+
+a.green {
+  background-color: #008000;
+}
+
+a.green:hover {
+  background-color: #006400;
+}
+
+a.blue {
+  background-color: #0000ff;
+}
+
+a.blue:hover {
+  background-color: #0000cc;
+}
